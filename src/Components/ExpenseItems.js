@@ -1,10 +1,15 @@
-function ExpenseItems() {
+import "./ExpenseItems.css";
+function ExpenseItems(props) {
   return (
-    <div>
-      <h1>Expense Items</h1>
-      <p>Food RS 10</p>
-      <p>Petrol RS 100</p>
-      <p>Movie RS200</p>
+    <div className="expense-item">
+      <div>{props.date.toISOString()}</div>
+      <div className="expense-item__description">
+        <h2>{props.title} </h2>
+        <div>
+          <h2>{props.location}</h2>
+        </div>
+        <div className="expense-item__price">{props.amount}</div>
+      </div>
     </div>
   );
 }
