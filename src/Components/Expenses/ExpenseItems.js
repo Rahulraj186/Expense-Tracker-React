@@ -1,10 +1,14 @@
+import React, { useState } from "react";
 import "./ExpenseItems.css";
 import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
 function ExpenseItems(props) {
-  const deleteExpense = () => {
-    //const item = document.getElementsByClassName("expesne-name");
-    console.log("Cilcked Delete Button");
+  const [amount, setTitle] = useState(props.amount);
+  //console.log("ExpenseItem is evaluated By React");
+
+  const changeAmount = () => {
+    setTitle("$100");
+    console.log(amount);
   };
   return (
     <div className="expense-item">
@@ -12,9 +16,9 @@ function ExpenseItems(props) {
       <ExpenseDetails
         title={props.title}
         location={props.location}
-        amount={props.amount}
+        amount={amount}
       />
-      <button onClick={deleteExpense}>Delete</button>
+      <button onClick={changeAmount}>Change Amount</button>
     </div>
   );
 }
